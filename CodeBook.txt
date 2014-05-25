@@ -1,0 +1,122 @@
+
+Tables:
+
+summaryData
+	The raw summarized data which shows means for all measures expanded for all blocks and identifies each subject and each activity for each record
+
+tidySubData
+	This shows the aggregate mean which collapses across all blocks for each subject
+
+tidyActData
+	This shows the aggregate mean which collapses across all blocks for each activity. 
+
+Data Manipulation:
+
+1) combined x_test records with the activity column
+2) combined x_train records with the activity column
+3) combined the above 2 columns with each other so that now both training and test data are in 1 table
+4) added column names to the data set using by using the text from the the features list
+5) removed all data values that were not means or standard deviations, was then left with just 79 columns instead of 562
+	a) first copied out all data which contained "mean" in it's column title
+	b) second copied out all data which contained "std" in it's column title
+	c) finally i combined these 2 sets of data together
+6) renamed column names to be more tidy, and gave the activities column a label "Activity"
+	a) This required replacing all invalid characters with new ones for the names of all columns
+7) replaced the 1:6 values in the Activity column with values corresponding to those found in the activities labels, e.g. Walking, sitting, etc.
+8) added a subjects column to the data and labeled it 'Subjects'
+9) Melted the data by subject for all column variables
+10) took an agregate mean for each record measure to create a mean for each column
+11) Repeated steps 10 and 11 for Activity
+12) Finally I removed old variables that were no longer needed. to make for a cleane workspace without redudant untidy outputs
+
+Variables:
+
+The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ. These time domain signals (prefix 't' to denote time) were captured at a constant rate of 50 Hz. Then they were filtered using a median filter and a 3rd order low pass Butterworth filter with a corner frequency of 20 Hz to remove noise. Similarly, the acceleration signal was then separated into body and gravity acceleration signals (tBodyAcc-XYZ and tGravityAcc-XYZ) using another low pass Butterworth filter with a corner frequency of 0.3 Hz. 
+
+Subsequently, the body linear acceleration and angular velocity were derived in time to obtain Jerk signals (tBodyAccJerk-XYZ and tBodyGyroJerk-XYZ). Also the magnitude of these three-dimensional signals were calculated using the Euclidean norm (tBodyAccMag, tGravityAccMag, tBodyAccJerkMag, tBodyGyroMag, tBodyGyroJerkMag). 
+
+Finally a Fast Fourier Transform (FFT) was applied to some of these signals producing fBodyAcc-XYZ, fBodyAccJerk-XYZ, fBodyGyro-XYZ, fBodyAccJerkMag, fBodyGyroMag, fBodyGyroJerkMag. (Note the 'f' to indicate frequency domain signals). 
+
+These signals were used to estimate variables of the feature vector for each pattern:  
+
+tBodyAcc-XMean
+tGravityAcc-XMean
+tBodyAccJerk-XMean
+tBodyGyro-XMean
+tBodyGyroJerk-XMean
+fBodyAcc-XMean
+fBodyAccJerk-XMean
+fBodyGyro-XMean
+tBodyAcc-YMean
+tGravityAcc-YMean
+tBodyAccJerk-YMean
+tBodyGyro-YMean
+tBodyGyroJerk-YMean
+fBodyAcc-YMean
+fBodyAccJerk-YMean
+fBodyGyro-YMean
+tBodZAcc-ZMean
+tGravitZAcc-ZMean
+tBodZAccJerk-ZMean
+tBodZGZro-ZMean
+tBodZGZroJerk-ZMean
+fBodZAcc-ZMean
+fBodZAccJerk-ZMean
+fBodZGZro-ZMean
+tBodyAcc-XStd
+tGravityAcc-XStd
+tBodyAccJerk-XStd
+tBodyGyro-XStd
+tBodyGyroJerk-XStd
+fBodyAcc-XStd
+fBodyAccJerk-XStd
+fBodyGyro-XStd
+tBodyAcc-YStd
+tGravityAcc-YStd
+tBodyAccJerk-YStd
+tBodyGyro-YStd
+tBodyGyroJerk-YStd
+fBodyAcc-YStd
+fBodyAccJerk-YStd
+fBodyGyro-YStd
+tBodZAcc-ZStd
+tGravitZAcc-ZStd
+tBodZAccJerk-ZStd
+tBodZGZro-ZStd
+tBodZGZroJerk-ZStd
+fBodZAcc-ZStd
+fBodZAccJerk-ZStd
+fBodZGZro-ZStd
+fBodyAccMagMean
+fBodyAccJerkMagMean
+fBodyGyroMagMean
+fBodyGyroJerkMagMean
+tBodyAccMagMean
+tGravityAccMagMean
+tBodyAccJerkMagMean
+tBodyGyroMagMean
+tBodyGyroJerkMagMean
+fBodyAccMagstd
+fBodyAccJerkMagstd
+fBodyGyroMagstd
+fBodyGyroJerkMagstd
+tBodyAccMagstd
+tGravityAccMagstd
+tBodyAccJerkMagstd
+tBodyGyroMagstd
+tBodyGyroJerkMagstd
+gravityMeanX
+tBodyAccMeanX
+tBodyAccJerkMeanX
+tBodyGyroMeanX
+tBodyGyroJerkMeanX
+gravityMeanY
+tBodyAccMeanY
+tBodyAccJerkMeanY
+tBodyGyroMeanY
+tBodyGyroJerkMeanY
+gravityMeanZ
+tBodyAccMeanZ
+tBodyAccJerkMeanZ
+tBodyGyroMeanZ
+tBodyGyroJerkMeanZ
